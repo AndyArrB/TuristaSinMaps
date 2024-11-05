@@ -1,1 +1,7 @@
-@extends('layout.navbarCliente')
+@extends('layout.plantillaCliente')
+
+@section('contenido_inicio')
+
+
+    
+@endsection

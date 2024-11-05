@@ -4,10 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavegacionController;
 
 Route::get('/', [NavegacionController::class, 'inicio'])->name('inicio');
-Route::post('/registro', [NavegacionController::class, 'registro'])->name('registro');
-Route::post('/inicio-sesion', [NavegacionController::class, 'inicio_sesion'])->name('inicio_sesion');
-Route::post('/recuperar-contraseña', [NavegacionController::class, 'recuperar_contraseña'])->name('recuperar_contraseña');
-Route::post('/nueva-contraseña', [NavegacionController::class, 'recuperar_contraseña2'])->name('recuperar_contraseña2');
+Route::get('/registro', [NavegacionController::class, 'registro'])->name('registro');
+Route::get('/inicio-sesion', [NavegacionController::class, 'inicio_sesion'])->name('inicio_sesion');
+Route::get('/recuperar-contraseña', [NavegacionController::class, 'recuperar_contraseña'])->name('recuperar_contraseña');
+Route::get('/nueva-contraseña', [NavegacionController::class, 'recuperar_contraseña2'])->name('recuperar_contraseña2');
 Route::get('/confirmacion-contraseña', [NavegacionController::class, 'recuperar_contraseña3'])->name('recuperar_contraseña3');
 Route::get('/perfil', [NavegacionController::class, 'perfil_cliente'])->name('perfil_cliente');
 Route::get('/vuelos', [NavegacionController::class, 'vuelos'])->name('vuelos');

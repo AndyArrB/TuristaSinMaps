@@ -17,7 +17,7 @@
 
         <div class="container-fluid">
 
-            <a class="navbar-brand text-light text-uppercase me-5" href="{{ route('inicio') }}">
+            <a class="navbar-brand text-light text-uppercase" href="{{ route('inicio') }}">
                 {{ __('Turista sin maps') }} </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navbarSupportedContent"
@@ -28,29 +28,28 @@
             <div class="collapse navbar-collapse">
 
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active me-5">
-                        <a class="nav-link text-light" href="{{ route('vuelos') }}"> {{ __('Vuelos') }} </a>
+                    <li class="nav-item active">
+                        <a class="nav-link text-light" href="{{ route('panel_admin') }}"> {{ __('Gestión principal') }} </a>
                     </li>
-                    <li class="nav-item me-5">
-                        <a class="nav-link text-light" href="{{ route('hoteles') }}"> {{ __('Hoteles') }} </a>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('admin_vuelos') }}"> {{ __('Vuelos') }} </a>
                     </li>
-                    <li class="nav-item me-5">
-                        <a class="nav-link text-light" href="{{ route('reservaciones') }}"> {{ __('Reservaciones') }}
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('admin_hoteles') }}"> {{ __('Hoteles') }}
                         </a>
                     </li>
-                    <li class="nav-item me-5">
-                        <a class="nav-link text-light" href="{{ route('reservaciones') }}"> {{ __('Carrito') }}
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{{ route('admin_usuarios') }}"> {{ __('Usuarios') }}
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown me-5">
+                    <li class="nav-item dropdown me-2">
                         <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                           Perfil
+                           Administrador
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
-                            <li><a class="dropdown-item" href="{{ route('inicio_sesion') }}">Iniciar sesión</a></li>
+                            <li><a class="dropdown-item" href="{{ route('inicio') }}">Cerrar sesión</a></li>
                         </ul>
             </div>
 
