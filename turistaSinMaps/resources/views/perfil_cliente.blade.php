@@ -10,31 +10,53 @@
     </div>
 
     <div class="row">
+    @if(session('exito'))
+        <x-Alert tipo="success">{{ session('exito') }}</x-Alert>
+
+        @endif
+        @session('exito')
+        <x-Alert tipo="warning">{{ $value }}</x-Alert>
+        @endsession
+
+        @session('exito')
+       {! <script>
+            Swal.fire({
+                title: 'Los datos se actualizaron',
+                text: "Se guardo el'{{ session('exito') }}'",
+                icon: "success"
+            });
+        </script>!}
+        @endsession
+    
    
         <div class="col-md-6 mb-4">
             <div class="card h-100">
                 <div class="card-header bg-primary text-white text-center">
                     Información Personal
                 </div>
+
                 <div class="card-body">
-                    <form action="" method="POST">
+                    <form action="/enviarperfil" method="POST">
                         @csrf
                         <div class="mb-3">
                             <label for="nombre" class="form-label">Nombre:</label>
                             <input type="text" class="form-control" name="txtnombre" value="">
-                            <button type="button" class="btn btn-warning mt-2">Editar</button>
+                            <small>{{ $errors->first('txtnombre') }}</small>
+                            <button type="submit" class="btn btn-warning mt-2">Editar</button>
                         </div>
 
                         <div class="mb-3">
                             <label for="correo" class="form-label">Email:</label>
                             <input type="text" class="form-control" name="txtcorreo" value="">
-                            <button type="button" class="btn btn-warning mt-2">Editar</button>
+                            <small>{{ $errors->first('txtcorreo') }}</small>
+                            <button type="submit" class="btn btn-warning mt-2">Editar</button>
                         </div>
 
                         <div class="mb-3">
                             <label for="telefono" class="form-label">Teléfono:</label>
                             <input type="text" class="form-control" name="txttelefono" value="">
-                            <button type="button" class="btn btn-warning mt-2">Editar</button>
+                            <small>{{ $errors->first('txttelefono') }}</small>
+                            <button type="submit" class="btn btn-warning mt-2">Editar</button>
                         </div>
                     </form>
                 </div>

@@ -52,6 +52,7 @@
                             <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
                             <li><a class="dropdown-item" href="{{ route('inicio_sesion') }}">Iniciar sesión</a></li>
                             <li><a class="dropdown-item" href="{{ route('panel_admin') }}">Administración</a></li>
+                            <li><a class="dropdown-item" href="{{ route('perfil_cliente') }}">Perfil</a></li>
                         </ul>
             </div>
 
@@ -59,9 +60,17 @@
 
 
     </nav>
-    <div class="pagina">
+<<<<<<< HEAD
+
+=======
+
+    <div class="container mt-4">
+        
         @yield('contenido')
+    
     </div>
+
+>>>>>>> 7be1a240fb759f52d7c1d4536921ae6f523bf590
     
 
 </body>

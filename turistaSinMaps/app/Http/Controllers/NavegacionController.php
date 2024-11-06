@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\ValidacionController ;
+
 class NavegacionController extends Controller
 {
     public function inicio(){
@@ -27,9 +29,18 @@ class NavegacionController extends Controller
     public function perfil_cliente(){
         return view('perfil_cliente');
     }
+
     public function vuelos(){
         return view('vuelos');
     }
+
+    public function procesarperfil(ValidacionController $peticion)
+    {
+        $perfil =$peticion->input('txtnombre');
+        session()->flash('exito','Usuario'.$perfil);
+        return to_route('perfil_cliente');
+    }
+
     public function hoteles(){
         return view('hoteles');
     }
