@@ -1,0 +1,28 @@
+.header, .card-header {
+    background-color: #ff66b2; 
+    color: white;
+}
+.btn-edit {
+    background-color: #ffbfdf; 
+    color: #333;
+    border: none;
+}
+.btn-edit:hover {
+    background-color: #ff99cc;
+    color: white;
+}
+.bg-light-blue {
+    background-color: #ffe6f2; 
+}
+.table th, .table td {
+    vertical-align: middle;
+    color: #333;
+}
+.link-more {
+    color: #ff66b2;
+    text-decoration: none;
+}
+.link-more:hover {
+    text-decoration: underline;
+    color: #ff3385;
+}
