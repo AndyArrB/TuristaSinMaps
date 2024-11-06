@@ -56,9 +56,9 @@
             </div>
             <div>
                 <p><strong>Total a pagar:</strong></p>
-                <div class="total-price">$3,700 USD</div>
+                <div class="total-price">$3,000 USD</div>
             </div>
-            <button type="submit">Finalizar pago</button>
+            <button type="submit" class="btn btn-success">Finalizar pago</button>
         </div>
     </div>
 </center>
