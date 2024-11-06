@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@yield('titulo')</title>
     @vite(['resources/js/app.js'])
+    @vite(['resources/css/stylemfondo.css'])
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
@@ -60,17 +61,14 @@
 
 
     </nav>
-<<<<<<< HEAD
 
-=======
 
-    <div class="container mt-4">
+    <div class="pagina">
         
         @yield('contenido')
     
     </div>
 
->>>>>>> 7be1a240fb759f52d7c1d4536921ae6f523bf590
     
 
 </body>
