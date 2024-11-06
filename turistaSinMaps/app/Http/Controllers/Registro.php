@@ -11,6 +11,10 @@ class Registro extends Controller
         return view('registro');
     }
 
+    public function perfil_cliente(){
+        return view('perfil_cliente');
+    }
+
     public function procesarRegistro(validadorRegistro $peticion){
         //return redirect('/');
 
@@ -21,4 +25,25 @@ class Registro extends Controller
 
 
     }
+
+    public function inicio_sesion(validadorRegistro $peticion){
+        //$usuario = $peticion->input('txtnombre');
+        session()->flash('exito');
+
+        return to_route('perfil_cliente');
+        
+    }
+
+    public function recuperar_contraseña(Request $peticion){
+
+        $validacion = $peticion->validate([
+            'txtemail' => 'required|email'
+        ]);
+
+        $usuario = $peticion->input('txtemail');
+        session()->flash('exito','Correo enviado!');
+
+        return to_route('recuperar_contraseña');
+
+    }   
 }
