@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     <li class="nav-item me-5">
-                        <a class="nav-link text-light" href="{{ route('carritos') }}"> {{ __('Carrito') }}
+                        <a class="nav-link text-light" href="{{ route('reservaciones') }}"> {{ __('Carrito') }}
                         </a>
                     </li>
 
