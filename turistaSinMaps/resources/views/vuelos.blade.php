@@ -50,7 +50,7 @@
                 <div class="search-bar">
                     <input type="text" placeholder="Buscar...">
                 </div>
-    <div class="flight-card">
+            <div class="flight-card">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNE3jp4-GeR-34je4qK2034L63HJ2UdqXnHA&s" alt="" srcset="">
                 <p>BA7890</p>
                 <p>British Airways</p>

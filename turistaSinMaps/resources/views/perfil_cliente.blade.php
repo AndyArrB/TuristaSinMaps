@@ -2,6 +2,7 @@
 
 @section('contenido_inicio')
 
+@vite(['resources/css/stylem.css'])
 <link rel="stylesheet" href="{{ asset('css/styleperfilc.css') }}">
 
 <div class="container mt-5">

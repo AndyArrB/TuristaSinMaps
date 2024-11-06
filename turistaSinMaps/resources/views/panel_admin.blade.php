@@ -1,6 +1,7 @@
 @extends('layout.plantillaAdmin')
 
 @section('contenido_panel')
+@vite(['resources/css/stylemfondo.css'])
 
     <div class="container mt-5">
         <h2 class="mb-4">Panel de Administración</h2>

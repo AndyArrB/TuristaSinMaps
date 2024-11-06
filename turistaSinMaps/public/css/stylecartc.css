@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
    display: grid;
     gap: 22px;
-    padding: 20px;
-    background-color: #f0f8ff;
+    
+    background: linear-gradient(135deg, #87c3c3, #d2e9e9);
 }
 
 .carrito, .summary {
@@ -91,4 +91,21 @@ body {
     font-size: 20px;
     cursor: pointer;
     margin-left: 10px;
+}
+
+.carrito-summary-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre los dos contenedores */
+    margin-left: 20px;  /* Margen izquierdo */
+    margin-right: 20px; /* Margen derecho */
+}
+
+.carrito, .summary {
+    background-color: #d4f1f9;
+    border-radius: 10px;
+    padding: 20px;
+    width: 80%; /* Puedes ajustar esto si prefieres que los contenedores tengan más o menos espacio */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
 }

@@ -8,10 +8,11 @@
     <title>@yield('titulo')</title>
     @vite(['resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 
 </head>
 
-<body>
+<body style="background: linear-gradient(135deg, #87c3c3, #d2e9e9);">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-black">
 

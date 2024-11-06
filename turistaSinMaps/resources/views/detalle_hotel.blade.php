@@ -29,8 +29,8 @@
     </div>
     <div class="buttons">
 
-        <button class="back-button"><a href="{{ route('hoteles') }}">Volver</a></button>
-        <button class="reserve-button"><a href="{{ route('hoteles') }}">Reservar</a></button>
+        <button class="btn btn-highlight btn-secondary"><a href="{{ route('hoteles') }}">Volver</a></button>
+        <button class="btn btn-highlight btn-secondary"><a href="{{ route('hoteles') }}">Reservar</a></button>
     </div>
 </div>
 @endsection

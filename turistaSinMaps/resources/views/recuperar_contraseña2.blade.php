@@ -7,13 +7,7 @@
 
 
     <div class="container3">
-        @if(session('exito'))
-            <script>Swal.fire({
-            title: "Cambio de contraseña exitoso",
-            text: "{{ session('exito') }}",
-            icon: "success"
-            });</script> 
-        @endif
+
         <h1>Bienvenido</h1><br>
         <form action="{{ route('enviarnueva_contraseña') }}" method="POST">
             @csrf

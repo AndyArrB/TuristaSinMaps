@@ -48,8 +48,13 @@ class Registro extends Controller
     }   
 
     public function nueva_contraseña(Request $peticion){
-        session()->flash('exito','Contraseña actualizada');
 
-        return to_route('recuperar_contraseña2');
+        $validacion = $peticion->validate([
+            'txtcontraseña' => 'required|string|min:8',
+            'txtconfirmarcontraseña' => 'required|string|same:txtcontraseña'
+        ]);
+
+
+        return to_route('recuperar_contraseña3');
     }
 }
