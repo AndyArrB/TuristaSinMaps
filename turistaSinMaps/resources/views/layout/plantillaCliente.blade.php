@@ -1,6 +1,7 @@
 @extends('layout.navbarCliente')
 
 @section('contenido')
+
     @yield('contenido_inicio')
     @yield('contenido_registro')
     @yield('contenido_inicio_sesion')

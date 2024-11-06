@@ -28,8 +28,9 @@
         <span>⭐ ⭐ ⭐ ⭐ ⭐</span>
     </div>
     <div class="buttons">
-        <button type="submit" class="back-button" >Volver</button>
-        <button class="reserve-button">Reservar</button>
+
+        <button class="back-button"><a href="{{ route('hoteles') }}">Volver</a></button>
+        <button class="reserve-button"><a href="{{ route('hoteles') }}">Reservar</a></button>
     </div>
 </div>
 @endsection

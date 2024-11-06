@@ -21,6 +21,10 @@ class ValidacionController extends FormRequest
      */
     public function rules(): array
     {
-        //
+        return [
+            'txtnombre' => 'required|string|max:255',
+            'txtcorreo' => 'required|email',
+            'txttelefono' => 'required|numeric'
+        ];
     }
 }
