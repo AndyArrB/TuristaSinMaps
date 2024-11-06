@@ -48,3 +48,14 @@
     transform: scale(1.05);
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+
+.container3 {
+    width: 100%; /* Ajusta este valor para controlar el ancho */
+    max-width: 600px; /* Establece un límite de ancho si es necesario */
+    padding: 20px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}
