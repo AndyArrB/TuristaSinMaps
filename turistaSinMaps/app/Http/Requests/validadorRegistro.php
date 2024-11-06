@@ -26,7 +26,8 @@ class validadorRegistro extends FormRequest
             'txtapellido' => 'required|string|min:3|max:20',
             'txtemail' => 'required|email',
             'txttelefono' => 'required|numeric|digits_between:10,15',
-            'txtcontraseña' => 'required|string|min:8'
+            'txtcontraseña' => 'required|string|min:8',
+            'txtconfirmarcontraseña' => 'required|string|same:txtcontraseña'
         ];
     }
 }

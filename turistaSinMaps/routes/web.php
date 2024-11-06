@@ -28,3 +28,4 @@ Route::post('/enviarperfil', [NavegacionController::class, 'procesarperfil'])->n
 Route::post('/procesarRegistro', [Registro::class, 'procesarregistro'])->name('enviarregistro');
 Route::post('/inicio_sesion', [Registro::class, 'perfil_cliente'])->name('enviarinicio_sesion');
 Route::post('/recuperarcontraseña', [Registro::class, 'recuperar_contraseña'])->name('enviarrecuperar_contraseña');
+Route::post('/nuevacontraseña', [Registro::class, 'nueva_contraseña'])->name('enviarnueva_contraseña');

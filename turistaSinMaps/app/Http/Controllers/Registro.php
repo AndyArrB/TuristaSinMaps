@@ -46,4 +46,10 @@ class Registro extends Controller
         return to_route('recuperar_contraseña');
 
     }   
+
+    public function nueva_contraseña(Request $peticion){
+        session()->flash('exito','Contraseña actualizada');
+
+        return to_route('recuperar_contraseña2');
+    }
 }
