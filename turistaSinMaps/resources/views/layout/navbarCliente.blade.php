@@ -52,6 +52,7 @@
                             <li><a class="dropdown-item" href="{{ route('registro') }}">Registrarse</a></li>
                             <li><a class="dropdown-item" href="{{ route('inicio_sesion') }}">Iniciar sesión</a></li>
                             <li><a class="dropdown-item" href="{{ route('panel_admin') }}">Administración</a></li>
+                            <li><a class="dropdown-item" href="{{ route('perfil_cliente') }}">Perfil</a></li>
                         </ul>
             </div>
 
