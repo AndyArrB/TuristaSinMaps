@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavegacionController;
+use App\Http\Controllers\VueloController;
 
 Route::get('/', [NavegacionController::class, 'inicio'])->name('inicio');
 Route::get('/registro', [NavegacionController::class, 'registro'])->name('registro');
@@ -20,3 +21,7 @@ Route::get('/panel-admin', [NavegacionController::class, 'panel_admin'])->name('
 Route::get('/admin-vuelos', [NavegacionController::class, 'admin_vuelos'])->name('admin_vuelos');
 Route::get('/admin-hoteles', [NavegacionController::class, 'admin_hoteles'])->name('admin_hoteles');
 Route::get('/admin-usuarios', [NavegacionController::class, 'admin_usuarios'])->name('admin_usuarios');
+
+Route::match(['get', 'post'], '/agregarVuelo', [VueloController::class, 'agregarVuelo'])->name('agregarVuelo');
+
+

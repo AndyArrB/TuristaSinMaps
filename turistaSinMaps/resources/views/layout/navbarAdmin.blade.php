@@ -29,7 +29,8 @@
 
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active  me-5">
-                        <a class="nav-link text-light" href="{{ route('panel_admin') }}"> {{ __('Gestión principal') }} </a>
+                        <a class="nav-link text-light" href="{{ route('panel_admin') }}"> {{ __('Gestión principal') }}
+                        </a>
                     </li>
                     <li class="nav-item  me-5">
                         <a class="nav-link text-light" href="{{ route('admin_vuelos') }}"> {{ __('Vuelos') }} </a>
@@ -44,9 +45,9 @@
                     </li>
 
                     <li class="nav-item dropdown me-5">
-                        <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                           Administrador
+                        <a class="nav-link dropdown-toggle text-light" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Administrador
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('inicio') }}">Cerrar sesión</a></li>
@@ -57,6 +58,13 @@
 
 
     </nav>
+
+    <div class="container mt-4">
+        @yield('contenido_panel')
+        @yield('contenido_adminHoteles')
+        @yield('contenido_adminVuelos')
+        @yield('contenido_adminUsuarios')
+    </div>
 
 </body>
 
