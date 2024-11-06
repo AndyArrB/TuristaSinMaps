@@ -59,8 +59,10 @@
 
 
     </nav>
-
-    @yield('contenido')
+    <div class="pagina">
+        @yield('contenido')
+    </div>
+    
 
 </body>
 

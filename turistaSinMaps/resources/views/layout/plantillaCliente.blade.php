@@ -1,6 +1,7 @@
 @extends('layout.navbarCliente')
 
 @section('contenido')
+    @vite(['resources/css/stylem.css'])
     @yield('contenido_inicio')
     @yield('contenido_registro')
     @yield('contenido_inicio_sesion')
