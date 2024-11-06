@@ -60,6 +60,8 @@
 
     </nav>
 
+    @yield('contenido')
+
 </body>
 
 </html>
