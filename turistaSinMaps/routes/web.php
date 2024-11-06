@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavegacionController;
+use App\Http\Controllers\VueloController;
 
 Route::get('/', [NavegacionController::class, 'inicio'])->name('inicio');
 Route::get('/registro', [NavegacionController::class, 'registro'])->name('registro');
@@ -22,4 +23,4 @@ Route::get('/admin-hoteles', [NavegacionController::class, 'admin_hoteles'])->na
 Route::get('/admin-usuarios', [NavegacionController::class, 'admin_usuarios'])->name('admin_usuarios');
 
 //POST
-Route::post('enviarperfil', [NavegacionController::class, 'procesarperfil'])->name('enviarperfil');
+Route::post('/enviarperfil', [NavegacionController::class, 'procesarperfil'])->name('enviarperfil');
