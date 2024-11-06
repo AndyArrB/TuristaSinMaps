@@ -62,17 +62,26 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>idk</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
-                                <td>-</td>
+                            <td>MX1234</td>
+            <td>Del 15/12/2023 al 20/12/2023</td>
+            <td>2</td>
+            <td>Hotel Paraíso del Caribe</td>
+            <td>5</td>
+            <td>10:30 AM</td>
+            <td>$1,500 USD</td>
+                            </tr>
+                            <tr>
+                            <td>LH2345</td>
+            <td>Del 10/02/2024 al 15/02/2024</td>
+            <td>1</td>
+            <td>Central Park Inn</td>
+            <td>5</td>
+            <td>11:00 AM</td>
+            <td>$1,200 USD</td>
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-link">Ver más</a>
+                    <a href="{{ route('reservaciones') }}" class="btn btn-link">Ver más</a>
                 </div>
             </div>
         </div>
