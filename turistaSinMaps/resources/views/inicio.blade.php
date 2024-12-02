@@ -1,4 +1,4 @@
-@extends('layout.plantillaCliente')
+@extends('layout.plantillaX')
 
 @section('contenido_inicio')
 @vite(['resources/css/stylem.css'])
