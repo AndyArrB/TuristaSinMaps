@@ -29,3 +29,7 @@ Route::post('/procesarRegistro', [Registro::class, 'procesarregistro'])->name('e
 Route::post('/inicio_sesion', [Registro::class, 'perfil_cliente'])->name('enviarinicio_sesion');
 Route::post('/recuperarcontraseña', [Registro::class, 'recuperar_contraseña'])->name('enviarrecuperar_contraseña');
 Route::post('/nuevacontraseña', [Registro::class, 'nueva_contraseña'])->name('enviarnueva_contraseña');
+
+
+//Emails
+Route::get('/verify-email/{token}', [Registro::class, 'verifyEmail'])->name('verify.email');

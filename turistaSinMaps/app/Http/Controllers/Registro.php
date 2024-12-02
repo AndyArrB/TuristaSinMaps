@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+use App\Models\Usuario;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\VerificationEmail;
 use App\Http\Requests\validadorRegistro;
 
 class Registro extends Controller
@@ -15,23 +20,56 @@ class Registro extends Controller
         return view('perfil_cliente');
     }
 
-    public function procesarRegistro(validadorRegistro $peticion){
-        //return redirect('/');
+    public function procesarRegistro(validadorRegistro $peticion)
+    {
+        // Crear usuario con estado no verificado
+        $usuario = Usuario::create([
+            "nombre" => $peticion->input('txtnombre'),
+            "apellido" => $peticion->input('txtapellido'),
+            "email" => $peticion->input('txtemail'),
+            "telefono" => $peticion->input('txttelefono'),
+            "password" => bcrypt($peticion->input('txtcontraseña')),
+            "verification_token" => Str::random(60),
+            "email_verified_at" => null // Explícitamente establece como no verificado
+        ]);
 
-        $usuario = $peticion->input('txtnombre');
-        session()->flash('exito', 'El usuario de '.$usuario.' registrado exitosamente.');
+        // Enviar correo de verificación
+        try {
+            Mail::to($usuario->email)->send(new VerificationEmail($usuario));
+            
+            session()->flash('exito', 'Registro iniciado. Por favor, verifica tu correo electrónico para completar el registro.');
+        } catch (\Exception $e) {
+            // Si falla el envío de correo, eliminar el usuario
+            $usuario->delete();
+            return back()->with('error', 'No se pudo enviar el correo de verificación. Intenta nuevamente.');
+        }
 
         return to_route('registro');
-
-
     }
 
-    public function inicio_sesion(validadorRegistro $peticion){
-        //$usuario = $peticion->input('txtnombre');
-        session()->flash('exito');
+    public function inicio_sesion(Request $peticion)
+{
+    $credenciales = $peticion->validate([
+        'txtemail' => 'required|email',
+        'txtcontraseña' => 'required'
+    ]);
+
+    $usuario = Usuario::where('email', $peticion->input('txtemail'))->first();
+
+        // Verificar si el usuario existe y está verificado
+        if (!$usuario || $usuario->email_verified_at === null) {
+            return back()->with('error', 'Por favor, verifica tu correo electrónico antes de iniciar sesión.');
+        }
+
+        // Verificar contraseña
+        if (!\Hash::check($peticion->input('txtcontraseña'), $usuario->password)) {
+            return back()->with('error', 'Credenciales incorrectas');
+        }
+
+        // Iniciar sesión manualmente
+        auth()->login($usuario);
 
         return to_route('perfil_cliente');
-        
     }
 
     public function recuperar_contraseña(Request $peticion){
@@ -56,5 +94,18 @@ class Registro extends Controller
 
 
         return to_route('recuperar_contraseña3');
+    }
+
+    public function verifyEmail($token)
+    {
+        $usuario = Usuario::where('verification_token', $token)->first();
+
+        if (!$usuario) {
+            return redirect('/registro')->with('error', 'Token de verificación inválido');
+        }
+
+        $usuario->markEmailAsVerified();
+
+        return redirect('/inicio-sesion')->with('exito', 'Correo verificado exitosamente. Ahora puedes iniciar sesión.');
     }
 }

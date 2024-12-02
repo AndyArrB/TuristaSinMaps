@@ -10,7 +10,7 @@
         @if(session('exito'))
             <script>Swal.fire({
             title: "Registro exitoso",
-            text: "{{$value}}",
+            text: "{{ session('exito') }}",
             icon: "success"
             });</script> 
         @endsession

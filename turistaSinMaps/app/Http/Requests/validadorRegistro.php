@@ -29,4 +29,19 @@ class validadorRegistro extends FormRequest
             'txtcontraseña' => 'required|string|min:8'
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'txtnombre.required' => 'El nombre es obligatorio',
+            'txtapellido.required' => 'El apellido es obligatorio',
+            'txtemail.required' => 'El correo electrónico es obligatorio',
+            'txtemail.email' => 'El correo electrónico no es válido',
+            'txtemail.unique' => 'Este correo electrónico ya está registrado',
+            'txttelefono.required' => 'El teléfono es obligatorio',
+            'txtcontraseña.required' => 'La contraseña es obligatoria',
+            'txtcontraseña.min' => 'La contraseña debe tener al menos 8 caracteres'
+        ];
+    }
+
 }
