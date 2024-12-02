@@ -22,7 +22,6 @@ class Registro extends Controller
 
     public function procesarRegistro(validadorRegistro $peticion)
     {
-        // Crear usuario con estado no verificado
         $usuario = Usuario::create([
             "nombre" => $peticion->input('txtnombre'),
             "apellido" => $peticion->input('txtapellido'),
@@ -30,7 +29,7 @@ class Registro extends Controller
             "telefono" => $peticion->input('txttelefono'),
             "password" => bcrypt($peticion->input('txtcontraseña')),
             "verification_token" => Str::random(60),
-            "email_verified_at" => null // Explícitamente establece como no verificado
+            "email_verified_at" => null // por default establece como no verificado
         ]);
 
         // Enviar correo de verificación
@@ -48,29 +47,37 @@ class Registro extends Controller
     }
 
     public function inicio_sesion(Request $peticion)
-{
-    $credenciales = $peticion->validate([
-        'txtemail' => 'required|email',
-        'txtcontraseña' => 'required'
-    ]);
+    {
+        // Validar campos de entrada
+        $credenciales = $peticion->validate([
+            'txtemail' => 'required|email',
+            'txtcontraseña' => 'required'
+        ]);
 
-    $usuario = Usuario::where('email', $peticion->input('txtemail'))->first();
+        // Buscar al usuario por su email
+        $usuario = Usuario::where('email', $peticion->input('txtemail'))->first();
 
         // Verificar si el usuario existe y está verificado
-        if (!$usuario || $usuario->email_verified_at === null) {
+        if (!$usuario) {
+            return back()->with('error', 'El usuario no está registrado.');
+        }
+
+        if ($usuario->email_verified_at === null) {
             return back()->with('error', 'Por favor, verifica tu correo electrónico antes de iniciar sesión.');
         }
 
         // Verificar contraseña
         if (!\Hash::check($peticion->input('txtcontraseña'), $usuario->password)) {
-            return back()->with('error', 'Credenciales incorrectas');
+            return back()->with('error', 'Correo y/o contraseña incorrecta.');
         }
 
         // Iniciar sesión manualmente
         auth()->login($usuario);
 
+        // Redirigir al perfil del cliente
         return to_route('perfil_cliente');
     }
+
 
     public function recuperar_contraseña(Request $peticion){
 
