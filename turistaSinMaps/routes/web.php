@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HotelesController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavegacionController;
 use App\Http\Controllers\VueloController;
@@ -34,3 +35,7 @@ Route::post('/nuevacontraseña', [Registro::class, 'nueva_contraseña'])->name('
 
 //Emails
 Route::get('/verify-email/{token}', [Registro::class, 'verifyEmail'])->name('verify.email');
+
+//rutas de busqueda de hoteles y vuelos
+//hoteles
+Route::post('/hoteles/buscar', [HotelesController::class, 'buscarHoteles'])->name('buscarHoteles');
