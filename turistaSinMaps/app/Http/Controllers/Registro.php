@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\VerificationEmail;
 use App\Http\Requests\validadorRegistro;
 use Illuminate\Support\Facades\Hash;
+use App\Services\SMSVerificationService;
 
 class Registro extends Controller
 {
@@ -149,5 +150,45 @@ class Registro extends Controller
 
         // Redirect to login
         return redirect()->route('inicio_sesion')->with('exito', 'Correo electrónico verificado exitosamente.');
+    }
+
+    protected $smsService;
+
+    public function __construct(SMSVerificationService $smsService)
+    {
+        $this->smsService = $smsService;
+    }
+
+    public function solicitar_codigo_telefono(Request $request)
+    {
+        $request->validate(['telefono' => 'required|exists:usuarios,telefono']);
+
+        $usuario = Usuario::where('telefono', $request->telefono)->first();
+
+        if (!$usuario) {
+            return back()->with('error', 'Teléfono no registrado');
+        }
+
+        $this->smsService->enviarCodigoVerificacion($request->telefono);
+
+        return view('verificacion_telefono', ['telefono' => $request->telefono]);
+    }
+
+    public function verificar_codigo_telefono(Request $request)
+    {
+        $request->validate([
+            'telefono' => 'required',
+            'codigo' => 'required|size:6',
+        ]);
+
+        if ($this->smsService->verificarCodigo($request->telefono, $request->codigo)) {
+            $usuario = Usuario::where('telefono', $request->telefono)->first();
+
+            auth()->login($usuario);
+
+            return redirect()->route('perfil_cliente');
+        }
+
+        return back()->with('error', 'Código de verificación inválido');
     }
 }

@@ -41,6 +41,7 @@
         </div>
         <a href="{{ route('recuperar_contraseña') }}">¿Olvidaste tu contraseña?</a><br><br>
         <button type="submit" class="btn btn-success">Iniciar sesión</button>
+         <a class="btn btn-warning" href="{{ route('inicio_sesion_telefono') }}">Otra forma de iniciar sesion</a>
     </form>
 </div>
 

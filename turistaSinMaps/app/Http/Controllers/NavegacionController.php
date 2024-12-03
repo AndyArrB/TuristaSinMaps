@@ -68,4 +68,7 @@ class NavegacionController extends Controller
     public function admin_usuarios(){
         return view('admin_usuarios');
     }
+    public function inicio_sesion_telefono(){
+        return view('inicio_sesion_telefono');
+    }
 }
