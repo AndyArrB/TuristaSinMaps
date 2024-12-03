@@ -15,5 +15,6 @@
     @yield('contenido_detalle_hotel')
     @yield('contenido_perfil')
     @yield('busquedaHoteles')
+    @yield('busquedaVuelos')
 @endsection
 

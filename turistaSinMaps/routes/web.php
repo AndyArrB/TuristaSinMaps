@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NavegacionController;
 use App\Http\Controllers\VueloController;
 use App\Http\Controllers\Registro;
+use App\Http\Controllers\VuelosController;
 
 Route::get('/', [NavegacionController::class, 'inicio'])->name('inicio');
 Route::get('/registro', [NavegacionController::class, 'registro'])->name('registro');
@@ -39,3 +40,6 @@ Route::get('/verify-email/{token}', [Registro::class, 'verifyEmail'])->name('ver
 //rutas de busqueda de hoteles y vuelos
 //hoteles
 Route::post('/hoteles/buscar', [HotelesController::class, 'buscarHoteles'])->name('buscarHoteles');
+
+//vuelos
+Route::post('/vuelos/buscar', [VuelosController::class, 'buscarVuelos'])->name('buscarVuelos');
